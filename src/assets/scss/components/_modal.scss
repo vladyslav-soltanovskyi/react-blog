@@ -1,0 +1,58 @@
+.overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.modal {
+    cursor: auto;
+    padding: 30px 40px;
+    background-color: #fff;
+    width: 450px;
+    cursor: auto;
+    border-radius: 12px;
+
+    @media screen and (max-width: 540px) {
+        width: auto;
+        max-width: 450px;
+    }
+
+    &-title {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 26px;
+        line-height: 110%;
+        letter-spacing: -0.5px;
+        color: #373737;
+    }
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    & .btn-close {
+        cursor: pointer;
+    }
+
+    &-group {
+        margin: 0 15px;
+    }
+
+    &-link {
+        cursor: pointer;
+        color: #2253af;
+        font-size: 14px;
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,207 @@
+.menu-block {
+    position: fixed;
+    width: 100px;
+    bottom: 0;
+    height: 100%;
+    right: 0;
+    background-color: #13315E;
+}
+
+.menu-btn {
+    cursor: pointer;
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    &-text {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 24px;
+        color: #FFFFFF;
+        margin-bottom: 20px;
+        letter-spacing: 0.12em;
+        transform: rotate(-90deg);
+    }
+}
+
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+
+    @media screen and (max-width: 1024px) {
+        & .menu-block {
+            display: none;
+        }
+
+        &-overlay {
+            display: none;
+        }
+    }
+
+    &-overlay {
+        background-color: rgba(0,0,0,0.2);
+        width: 100%;
+        height: 100vh;
+        cursor: pointer;
+        position: fixed;
+        backdrop-filter: blur(7px);
+        left: 0;
+        top: 0;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0.3s, opacity 0.3s;
+        
+        &.active {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    &-header {
+        padding: 25px 40px;
+
+        @media screen and (max-width: 1024px) {
+            & {
+                display: none;
+            }
+        }
+    }
+
+    .menu {
+        margin-top: 30px;
+
+        &-link {
+            
+            & a, & span {
+                cursor: pointer;
+                padding: 10px 40px;
+                width: 100%;
+                display: inline-block;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 52px;
+                color: #FFFFFF;
+                
+                &:hover {
+                    background: rgba(255, 255, 255, 0.03);
+                }
+                
+                &:active {
+                    background: rgba(255, 255, 255, 0.06);
+                }
+
+                &.active {
+                    background: rgba(255, 255, 255, 0.06);
+                }
+            }
+
+        }
+
+        @media screen and (max-width: 1024px) {
+            & {
+                width: 100%;
+                height: 100%;
+                margin-top: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                &-link {
+                    color: #fff;
+                    width: 25%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    & a, & span {
+                        text-align: center;
+                        padding: 15px 20px;
+                        line-height: inherit;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 540px) {
+            &-link a {
+                font-size: 10px;
+            }
+        }
+    }
+
+
+    &-title {
+        font-weight: 800;
+        font-size: 26px;
+        line-height: 52px;
+        color: #FFFFFF;
+    }
+
+    &-date {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 32px;
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-content {
+        z-index: 100;
+        position: fixed;
+        background-color: #13315E;
+        height: 100%;
+        width: 400px;
+        bottom: 0;
+        right: 0;
+        transition: transform 0.3s;
+        transform: translateX(400px);
+        
+        &.active {
+            transform: translateX(0);
+        }
+
+        @media screen and (max-width: 1024px) {
+            & {
+                width: 100%;
+                height: 60px;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                transform: translateX(0);
+                border-radius: 20px 20px 0 0;
+            }
+        }
+
+        .menu-block {
+            padding-left: 20px;
+            background-color: #0A2246;
+            height: 80px;
+            width: 100%;
+            
+            .menu-btn {
+                position: static;
+                flex-direction: row;
+                height: 100%;
+        
+                &-text {
+                    display: inline-block;
+                    font-weight: 600;
+                    font-size: 17px;
+                    line-height: 24px;
+                    color: #FFFFFF;
+                    margin-bottom: 0;
+                    letter-spacing: 0.12em;
+                    transform: rotate(0);
+                }
+            }
+        }
+        
+    }
+}

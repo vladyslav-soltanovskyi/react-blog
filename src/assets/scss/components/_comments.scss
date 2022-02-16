@@ -1,0 +1,122 @@
+.comments {
+    margin: 60px 0 0 0;
+
+    
+
+    .title {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 24px;
+        color: #0A3465;
+        margin: 0;
+    }
+
+    &-content {
+        padding: 20px 0 0 0;
+
+    }
+    
+    &-form {
+        margin: 15px 0;
+
+        &-title {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+            color: #0A3465;
+            margin-bottom: 7px;
+        }
+        
+        &-group {
+            margin-top: 22px;
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}
+
+.comments-body {
+    padding: 0 69px 20px 69px;
+
+    @media screen and (max-width: 540px) {
+        padding: 0 20px 20px 20px;
+    }
+}
+
+.comment {
+    padding: 20px 0;
+    position: relative;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    &:hover {
+        background-color: darken(#fff, 2%);
+    }
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-title {
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 18px;
+            color: #373737;
+        }
+
+        &-date {
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            font-feature-settings: 'tnum' on, 'lnum' on;
+            color: #C1C1C1;
+        }
+    }
+
+    &-content {
+        margin: 0;
+        margin-top: 15px;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 22px;
+        color: #373737;
+    }
+
+    &-helper-info {
+        font-size: 12px;
+        
+        & .comment-helper-link {
+            color: #22af5d;
+            cursor: pointer;
+        }
+    }
+
+    &-actions {
+        background-color: rgb(238, 238, 238);
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        position: absolute;
+        right: 0;
+        padding: 5px 10px;
+        display: flex;
+        transition: opacity 0.3s;
+        opacity: 0;
+        visibility: hidden;
+        top: -30px;
+        border-radius: 7px;
+    }
+
+    &-action svg {
+        font-size: 16px;
+        // fill: #fff;
+    }
+
+    &:hover &-actions {
+        opacity: 1;
+        visibility: visible;
+    }
+}
