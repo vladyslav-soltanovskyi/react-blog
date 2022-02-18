@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { addNotification } from "@/store/actions/notifications";
 import LoadingPostPage from "@/components/Post/LoadingPostPage";
 import PostForm from "@/components/PostForm";
-import LoadingPostPage from "@/components/Post/LoadingPostPage";
+import EmptyPostPage from "@/components/Post/EmptyPostPage";
 import api from "@/services/api";
 
 export default function EditPost() {
