@@ -41,14 +41,11 @@ function Post() {
     return <LoadingPostPage />;
   }
 
-  if(!post) {
-    return (
-      <EmptyPostPage />
-    );
+  if (!post) {
+    return <EmptyPostPage />;
   }
 
   const { createdAt, description, photoUrl, text, title, views, user } = post;
-
 
   return (
     post && (
@@ -81,8 +78,7 @@ function Post() {
               <ReactMarkdown children={text} remarkPlugins={[remarkGfm]} />
             ),
           }}
-        >
-        </div>
+        ></div>
         <CommentsBlock />
       </div>
     )
