@@ -98,14 +98,13 @@ export default function CreatePost({
       return;
     }
 
-    formData.append("file", file);
+    formData.append("photo", file);
 
     setisUploading(true);
 
     api
       .post("/posts/upload", formData, {
         headers: {
-          ...api.headers,
           "Content-Type": "multipart/form-data",
         },
         onUploadProgress: function (e) {

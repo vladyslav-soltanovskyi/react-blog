@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { useDispatch } from "react-redux";
 import { addNotification } from "@/store/actions/notifications";
 import api from "@/services/api";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams, useLocation } from "react-router-dom";
 import { convertDate } from "@/utils";
 import useAuth from "@/hooks/useAuth";
 import useModal from "@/hooks/useModal";
@@ -22,10 +22,10 @@ function Post({
   onDelete,
 }) {
   const dispatch = useDispatch();
+  const { search } = useLocation();
   const { id } = useParams();
   const auth = useAuth();
   const { openModal } = useModal();
-
 
   const removePost = async (id) => {
     try {
@@ -55,7 +55,7 @@ function Post({
       })}
     >
       <div className="content">
-        <NavLink to={`/post/${_id}`} className="title">
+        <NavLink to={`/post/${_id}${search}`} className="title">
           {title}
         </NavLink>
         <p className="description">

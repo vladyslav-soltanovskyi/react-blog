@@ -50,21 +50,8 @@ module.exports.create = async (req, res) => {
 };
 
 module.exports.upload = async (req, res) => {
-  if (!req.files.file) {
-    res.status(400).send('Нет файла для загрузки');
-    return;
-  }
-
-  const { file } = req.files;
-  const uploadPath = [process.cwd(), '/public/uploads', file.md5 + '_' + file.name].join('/');
-
-  file.mv(uploadPath, function (err) {
-    if (err) {
-      return res.status(500).send(err);
-    }
-
-    res.json({ url: uploadPath.split('/public')[1] });
-  });
+  const file = req.file
+  res.send({ url: file.location })
 };
 
 module.exports.show = async (req, res) => {
