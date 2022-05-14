@@ -1,0 +1,41 @@
+.profile {
+    padding-top: 80px;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    max-width: 560px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+
+    &-content {
+        width: 100%;
+    }
+
+    &-header {
+        border-bottom: 1px solid #F2F2F2;
+        
+        & .title {
+            font-weight: 800;
+            font-size: 58px;
+            line-height: 52px;
+            color: #0058D9;
+        }
+    
+        & .date {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 52px;
+            color: #202020;
+            margin-top: 12px;
+            margin-bottom: 25px;
+        }
+    }
+
+
+    &-items {
+
+        .post-item {
+            padding: 26px 0;
+        }
+    }
+}
