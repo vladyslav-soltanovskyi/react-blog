@@ -56,7 +56,7 @@ function Pagination({ items, total }) {
       )}
       {items.length ? (
         <p className="pagination-text">
-          Страница {page} из {countPage}
+          Page {page} of {countPage}
         </p>
       ) : null}
     </Box>

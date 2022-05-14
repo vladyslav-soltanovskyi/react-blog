@@ -26,13 +26,13 @@ const schema = yup
   .object({
     email: yup
       .string()
-      .email("Не валидный email")
-      .required("Email обязателен!"),
+      .email("Invalid email")
+      .required("Email is required!"),
     password: yup
       .string()
-      .required("Пароль обязателен!")
-      .min(8, "Введите более 8 символов")
-      .max(64, "Введите менее 64 символов"),
+      .required("Password is required!")
+      .min(8, "Enter more than 8 characters")
+      .max(64, "Enter less than 64 characters"),
   })
   .required();
 
@@ -71,7 +71,7 @@ function ModalLogin({ visible }) {
       auth.setToken(token);
       auth.setUser({ _id, fullName, email, createdAt });
 
-      dispatch(addNotification("Успешно авторизировались", "success"));
+      dispatch(addNotification("Successfully logged in", "success"));
       reset({
         email: "",
         password: "",
@@ -104,7 +104,7 @@ function ModalLogin({ visible }) {
     >
       <div className="modal">
         <div className="modal-header">
-          <div className="modal-title">Вход в аккаунт</div>
+          <div className="modal-title">Login to your account</div>
           <div className="btn-close">
             <IconButton onClick={handleClose}>
               <CloseIcon />
@@ -138,7 +138,7 @@ function ModalLogin({ visible }) {
               component="p"
               sx={{ fontSize: 13, fontWeight: 600, marginBottom: "8px" }}
             >
-              Пароль
+              Password
             </Typography>
             <OutlinedInput
               id="password"
@@ -168,11 +168,11 @@ function ModalLogin({ visible }) {
             </FormHelperText>
           </Box>
           <p onClick={toggleModal} className="modal-link">
-            Вы уже зарегистрированы?
+            Are you already registered?
           </p>
           <Box mt={4}>
             <Button type="submit" fullWidth disabled={isLoading}>
-              Войти
+              Login
             </Button>
           </Box>
         </form>

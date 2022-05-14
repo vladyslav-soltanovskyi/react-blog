@@ -26,10 +26,10 @@ export default function ModalConfirm({ title, onConfirm = () => {}, visible }) {
       <DialogTitle id="responsive-dialog-title">{title}</DialogTitle>
       <DialogActions>
         <Button autoFocus onClick={handleClose}>
-          Отмена
+          Cancle
         </Button>
         <Button onClick={handleConfirm} autoFocus>
-          да
+          Ok
         </Button>
       </DialogActions>
     </Dialog>

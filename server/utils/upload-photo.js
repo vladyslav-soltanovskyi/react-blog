@@ -12,7 +12,7 @@ function fileFilter(req, file, cb){
   if(mimetype){
     return cb(null,true);
   } else {
-    return cb('Ошибка: только картинки!');
+    return cb('You can only send jpg, png and gif photos');
   }
 }
 

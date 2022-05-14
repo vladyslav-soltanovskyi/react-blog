@@ -9,7 +9,7 @@ export default function CreatePost() {
   const createPost = async (data) => {
     try {
       await api.posts.createPost(data);
-      dispatch(addNotification("Статья успешно создана", "success"));
+      dispatch(addNotification("The post was successfully created", "success"));
     } catch (e) {
       dispatch(addNotification(e?.response?.data?.error, "error"));
     }

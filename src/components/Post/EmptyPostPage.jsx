@@ -100,7 +100,7 @@ function EmptyPostPage() {
           ></path>
         </g>
       </svg>
-      <h3>Статья не найдена</h3>
+      <h3>Post not found</h3>
     </div>
   );
 }

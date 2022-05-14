@@ -89,7 +89,7 @@ function Profile() {
         <div className="profile-header">
           <h2 className="title">{user.fullName}</h2>
           <p className="date">
-            Дата регистрации: {convertDate(user.createdAt)}
+            Registration date: {convertDate(user.createdAt)}
           </p>
         </div>
         <Box mt={4}>
@@ -98,14 +98,14 @@ function Profile() {
             active={act === "posts"}
             onClick={() => changeAct("posts")}
           >
-            Статьи
+            Posts
           </Button>
           <Button
             className="button-profile"
             active={act === "comments"}
             onClick={() => changeAct("comments")}
           >
-            Комментарии
+            Comments
           </Button>
         </Box>
         <div className="profile-items">

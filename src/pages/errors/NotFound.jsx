@@ -4,7 +4,7 @@ function NotFound() {
   return (
     <div className="empty-block">
       <SVG />
-      <h3>Страница не найдена</h3>
+      <h3>Page not found</h3>
     </div>
   );
 }

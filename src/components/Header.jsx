@@ -19,7 +19,7 @@ function Header() {
 
   const showConfirm = () => {
     const options = {
-      title: "Вы действительно хотите выйти?",
+      title: "Do you really want to exit?",
       onConfirm: () => logOut(),
     };
     openModal({ type: "confirm", options });
@@ -28,11 +28,11 @@ function Header() {
   return (
     <div className="header">
       <NavLink to="/" className="header-title">
-        VASYA BLOG
+        VLAD'S BLOG
       </NavLink>
       <div className="header-icons">
         <div className="header-icon">
-          <Tooltip title="Поиск">
+          <Tooltip title="Search">
             <IconButton onClick={toggleVisible}>
               <SearchIcon />
             </IconButton>
@@ -42,7 +42,7 @@ function Header() {
           <div className="user-icons">
             <div className="header-icon">
               <NavLink to="/post/create">
-                <Tooltip title="Написать">
+                <Tooltip title="Create post">
                   <IconButton>
                     <EditOutlinedIcon />
                   </IconButton>
@@ -51,7 +51,7 @@ function Header() {
             </div>
             <div className="header-icon">
               <NavLink to={`/profile/${user?._id}`}>
-                <Tooltip title="Профиль">
+                <Tooltip title="Profile">
                   <IconButton>
                     <PersonOutlineOutlinedIcon />
                   </IconButton>
@@ -59,7 +59,7 @@ function Header() {
               </NavLink>
             </div>
             <div className="header-icon">
-              <Tooltip title="Выйти">
+              <Tooltip title="Exit">
                 <IconButton onClick={showConfirm}>
                   <LogoutOutlinedIcon />
                 </IconButton>

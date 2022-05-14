@@ -23,7 +23,7 @@ function SearchInput({ active, toggleActive }) {
       <input
         className="search-input"
         type="text"
-        placeholder="Поиск статьи по заголовку или тексту..."
+        placeholder="Search for an article by title or text..."
         onChange={handleChange}
         defaultValue={query}
       />

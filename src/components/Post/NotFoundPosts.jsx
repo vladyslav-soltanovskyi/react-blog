@@ -4,7 +4,7 @@ function NotFoundPosts() {
   return (
     <div className="empty-block">
       <SVG />
-      <h3>Нет статей</h3>
+      <h3>Post not found</h3>
     </div>
   );
 }

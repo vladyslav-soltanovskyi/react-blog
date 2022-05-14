@@ -19,23 +19,23 @@ const schema = yup
   .object({
     title: yup
       .string()
-      .required("Это обязатлеьное поле")
-      .min(3, "Введите болле 3 символов")
-      .max(256, "Введите менее 256 символов"),
+      .required("This is a required field")
+      .min(3, "Enter more than 3 characters")
+      .max(256, "Enter less than 256 characters"),
     text: yup
       .string()
-      .required("Это обязатлеьное поле")
-      .min(3, "Введите болле 3 символов")
-      .max(65536, "Введите менее 65536 символов"),
+      .required("This is a required field")
+      .min(3, "Enter more than 3 characters")
+      .max(65536, "Enter less than 65536 characters"),
     description: yup
       .string()
-      .required("Это обязатлеьное поле")
-      .min(3, "Введите болле 3 символов")
-      .max(400, "Введите менее 400 символов"),
+      .required("This is a required field")
+      .min(3, "Enter more than 3 characters")
+      .max(400, "Enter less than 400 characters"),
     photoUrl: yup
       .string()
-      .min(3, "Введите болле 3 символов")
-      .max(200, "Введите менее 200 символов"),
+      .min(3, "Enter more than 3 characters")
+      .max(200, "Enter less than 200 characters"),
   })
   .required();
 
@@ -91,7 +91,7 @@ export default function CreatePost({
     if (!acceptTypes.includes(file.type)) {
       dispatch(
         addNotification(
-          "Можно только отправлять фотографии типо jpg, png и gif",
+          "You can only send jpg, png and gif photos",
           "error"
         )
       );
@@ -140,7 +140,7 @@ export default function CreatePost({
       <form className="form" onSubmit={handleSubmit(onSend)}>
         <input
           className="title"
-          placeholder="Введите заголовок..."
+          placeholder="Enter the title..."
           {...register("title")}
         />
         <FormHelperText className="form-field-error">
@@ -152,7 +152,7 @@ export default function CreatePost({
             className="caption"
             sx={{ fontSize: 13, fontWeight: 600, marginBottom: "7px" }}
           >
-            Короткое описание
+            Short description
           </Typography>
           <TextField
             multiline
@@ -172,7 +172,7 @@ export default function CreatePost({
             className="caption"
             sx={{ fontSize: 13, fontWeight: 600, marginBottom: "7px" }}
           >
-            Ссылка на изображение:
+            Link to the image:
           </Typography>
           <div className="post-create-group">
             <TextField
@@ -200,7 +200,7 @@ export default function CreatePost({
             className="caption"
             sx={{ fontSize: 13, fontWeight: 600, marginBottom: "7px" }}
           >
-            Полное описание
+            Full description
           </Typography>
           <Controller
             control={control}
@@ -223,7 +223,7 @@ export default function CreatePost({
         <Box mt={3}>
           <div className="comments-form-group">
             <Button type="submit" disabled={isSending}>
-              {isSending ? "Публикуется" : "Опубликовать"}
+              {isSending ? "Sending" : "Send"}
             </Button>
           </div>
         </Box>

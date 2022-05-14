@@ -55,7 +55,7 @@ function Post() {
           <img src={photoUrl} alt="" />
           <div className="post-info">
             <div className="post-author">
-              Автор:&nbsp;
+              Author:&nbsp;
               <NavLink to={`/profile/${user._id}`} className="link">
                 {user.fullName}
               </NavLink>

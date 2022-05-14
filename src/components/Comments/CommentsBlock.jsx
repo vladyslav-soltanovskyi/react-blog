@@ -19,7 +19,7 @@ function CommentsBlock() {
     <div className="comments-body">
       <div className="comments">
         <div className="title">
-          Комментарии {!!comments.length && `(${comments.length})`}
+          Comments {!!comments.length && `(${comments.length})`}
         </div>
         <div className="comments-content">
           <CommentList comments={comments} isLoading={isLoading} />

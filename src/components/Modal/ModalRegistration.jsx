@@ -25,16 +25,16 @@ const schema = yup
   .object({
     fullName: yup
       .string()
-      .min(3, "Введите болле 3 символов")
-      .max(64, "Введите менее 64 символов"),
+      .min(3, "Enter more than 3 characters")
+      .max(64, "Enter less than 64 characters"),
     email: yup
       .string()
-      .email("Не валидный email")
-      .required("Email обязателен!"),
+      .email("Invalid email")
+      .required("Email is required!"),
     password: yup
       .string()
-      .min(8, "Введите более 8 символов")
-      .max(64, "Введите менее 64 символов"),
+      .min(8, "Enter more than 8 characters")
+      .max(64, "Enter less than 64 characters"),
   })
   .required();
 
@@ -67,7 +67,7 @@ function ModalRegistration({ visible }) {
 
       await api.auth.register(data);
 
-      dispatch(addNotification("Успешно зарегистрировались", "success"));
+      dispatch(addNotification("Successfully registered", "success"));
       reset({
         fullName: "",
         email: "",
@@ -100,7 +100,7 @@ function ModalRegistration({ visible }) {
     >
       <div className="modal">
         <div className="modal-header">
-          <div className="modal-title">Регистрация</div>
+          <div className="modal-title">Registration</div>
           <div className="btn-close">
             <IconButton onClick={handleClose}>
               <CloseIcon />
@@ -113,7 +113,7 @@ function ModalRegistration({ visible }) {
               component="p"
               sx={{ fontSize: 13, fontWeight: 600, marginBottom: "8px" }}
             >
-              Имя и фамилия
+              Name and surname
             </Typography>
             <TextField
               fullWidth
@@ -151,7 +151,7 @@ function ModalRegistration({ visible }) {
               component="p"
               sx={{ fontSize: 13, fontWeight: 600, marginBottom: "8px" }}
             >
-              Пароль
+              Password
             </Typography>
             <OutlinedInput
               fullWidth
@@ -180,11 +180,11 @@ function ModalRegistration({ visible }) {
             </FormHelperText>
           </Box>
           <p onClick={toggleModal} className="modal-link">
-            У вас еще нет аккаунта?
+            Don't you have an account yet?
           </p>
           <Box mt={4}>
             <Button type="submit" fullWidth disabled={isLoading}>
-              Зарегистрироваться
+              Register
             </Button>
           </Box>
         </form>

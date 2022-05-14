@@ -30,7 +30,7 @@ function Post({
   const removePost = async (id) => {
     try {
       await api.posts.deletePost(id);
-      dispatch(addNotification("Статья успешно удалена", "success"));
+      dispatch(addNotification("The post was successfully deleted", "success"));
     } catch (e) {
       dispatch(addNotification(e?.response?.data?.error, "error"));
     }
@@ -38,7 +38,7 @@ function Post({
 
   const showConfirm = () => {
     const options = {
-      title: "Вы действительно хотите удалить эту статью?",
+      title: "Do you really want to delete this post?",
       onConfirm: async () => {
         await removePost(_id);
         onDelete();
@@ -70,7 +70,7 @@ function Post({
           </div>
         </div>
         <div className="author">
-          Автор:{" "}
+          Author:{" "}
           <NavLink to={`/profile/${user._id}`} className="link">
             {user.fullName}
           </NavLink>
@@ -92,10 +92,10 @@ function Post({
               }}
             >
               <Button className="button-gray" onClick={showConfirm}>
-                Удалить
+                Delete
               </Button>
               <NavLink to={`/post/${_id}/edit`} className="button">
-                Изменить
+                Edit
               </NavLink>
             </Box>
           )

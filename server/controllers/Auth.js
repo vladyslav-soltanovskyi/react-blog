@@ -24,7 +24,7 @@ module.exports.register = async (req, res) => {
     const oldUser = await User.findOne({ email });
 
     if (oldUser) {
-      return res.status(400).json({ error: 'Пользователь с такой почтой уже зарегистрирован' });
+      return res.status(400).json({ error: 'A user with such an email is already registered' });
     }
 
     const user = await User.create({
@@ -40,7 +40,7 @@ module.exports.register = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.status(500).json({ error: 'Ошибка при регистрации' });
+    res.status(500).json({ error: 'Error during registration' });
   }
 };
 
@@ -50,13 +50,13 @@ module.exports.me = async (req, res) => {
     const user = await User.findById(userId);
 
     if (!user) {
-      return res.status(401).json({ error: 'Вы не авторизованы' });
+      return res.status(401).json({ error: 'You are not logged in' });
     }
 
     return res.json(user);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ error: 'Произошла ошибка' });
+    res.status(500).json({ error: 'An error has occurred' });
   }
 };
 
@@ -78,7 +78,7 @@ module.exports.login = async (req, res) => {
     const user = await User.findOne({ email }).select('fullName email password createdAt');
 
     if (!user) {
-      return res.status(404).json({ error: "Пользователь не найден"});
+      return res.status(404).json({ error: "User not found"});
     }
 
     const passwordCorrect = await bcrypt.compare(password, user.password);
@@ -92,9 +92,9 @@ module.exports.login = async (req, res) => {
       });
     }
 
-    res.status(400).json({ error: 'Неверный логин или пароль' });
+    res.status(400).json({ error: 'Invalid username or password' });
   } catch (err) {
     console.log(err);
-    res.status(500).json({ error: 'Ошибка при авторизации' });
+    res.status(500).json({ error: 'Authorization error' });
   }
 };

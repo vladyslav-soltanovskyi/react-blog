@@ -15,7 +15,7 @@ module.exports.all = async (req, res) => {
     return res.status(200).json(result);
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ error: 'Произошла серверная ошибка' });
+    return res.status(500).json({ error: 'An error occurred on the server' });
   }
 };
 
@@ -37,10 +37,10 @@ module.exports.create = async (req, res) => {
         console.log(result);
         return res.status(201).json(result);
       }
-      return res.status(400).json({ error: 'Не удалось создать комментарий' });
+      return res.status(400).json({ error: 'Failed to create a comment' });
     } catch (err) {
       console.log(err);
-      return res.status(500).json({ error: 'Произошла серверная ошибка' });
+      return res.status(500).json({ error: 'An error occurred on the server' });
     }
   }
 };
@@ -48,17 +48,17 @@ module.exports.create = async (req, res) => {
 module.exports.postComments = async (req, res) => {
   const id = req.params.id;
   if (!validator.isMongoId(id)) {
-    res.status(400).json({ error: 'Неверный ID записи' });
+    res.status(400).json({ error: 'Invalid User ID' });
   } else {
     try {
       const result = await Comment.find({ post: id }).populate('user');
       if (result) {
         return res.status(200).json(result);
       }
-      return res.status(404).json({ error: 'Такой записи нет в базе' });
+      return res.status(404).json({ error: 'There is no such record in the database' });
     } catch (err) {
       console.log(err);
-      return res.status(500).json({ error: 'Произошла серверная ошибка' });
+      return res.status(500).json({ error: 'An error occurred on the server' });
     }
   }
 };
@@ -66,7 +66,7 @@ module.exports.postComments = async (req, res) => {
 module.exports.update = async (req, res) => {
   const id = req.params.id;
   if (!validator.isMongoId(id)) {
-    res.status(400).json({ error: 'Неверный ID комментария' });
+    res.status(400).json({ error: 'Invalid User ID' });
   } else {
     const { error } = Joi.object({
       text: Joi.string().required().min(3).max(65536),
@@ -80,10 +80,10 @@ module.exports.update = async (req, res) => {
         if (result) {
           return res.status(202).json(result);
         }
-        return res.status(400).json({ error: 'Такого комментария нет в базе' });
+        return res.status(400).json({ error: 'There is no such comment in the database' });
       } catch (err) {
         console.log(err);
-        return res.status(500).json({ error: 'Произошла серверная ошибка' });
+        return res.status(500).json({ error: 'An error occurred on the server' });
       }
     }
   }
@@ -92,17 +92,17 @@ module.exports.update = async (req, res) => {
 module.exports.delete = async (req, res) => {
   const id = req.params.id;
   if (!validator.isMongoId(id)) {
-    res.status(400).json({ error: 'Неверный ID комментария' });
+    res.status(400).json({ error: 'Invalid User ID' });
   } else {
     try {
       const result = await Comment.findByIdAndDelete(id);
       if (result) {
         return res.status(202).json();
       }
-      return res.status(400).json({ error: 'Такого комментария нет в базе' });
+      return res.status(400).json({ error: 'There is no such comment in the database' });
     } catch (err) {
       console.log(err);
-      return res.status(500).json({ error: 'Произошла серверная ошибка' });
+      return res.status(500).json({ error: 'An error occurred on the server' });
     }
   }
 };

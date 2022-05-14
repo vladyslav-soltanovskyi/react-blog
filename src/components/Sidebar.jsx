@@ -19,7 +19,7 @@ function Sidebar() {
 
   const showConfirm = () => {
     const options = {
-      title: "Вы действительно хотите выйти?",
+      title: "Do you really want to exit?",
       onConfirm: () => logOut(),
     };
     openModal({ type: "confirm", options });
@@ -27,24 +27,24 @@ function Sidebar() {
 
   const routes = [
     {
-      title: "Главная",
+      title: "Main page",
       path: "/",
       onClick: hideSidebar,
     },
     {
-      title: "Мой профиль",
+      title: "Profile page",
       path: `/profile/${user?._id}`,
       isAuth: true,
       onClick: hideSidebar,
     },
     {
-      title: "Создать запись",
+      title: "Create post",
       path: "/post/create",
       isAuth: true,
       onClick: hideSidebar,
     },
     {
-      title: "Выйти",
+      title: "Exit",
       isAuth: true,
       onClick: () => {
         hideSidebar();
@@ -52,7 +52,7 @@ function Sidebar() {
       },
     },
     {
-      title: "Войти",
+      title: "Login",
       isAuth: false,
       onClick: () => {
         hideSidebar();
@@ -60,7 +60,7 @@ function Sidebar() {
       },
     },
     {
-      title: "Регистрация",
+      title: "Registration",
       isAuth: false,
       onClick: () => {
         hideSidebar();
@@ -80,7 +80,7 @@ function Sidebar() {
           <div className="sidebar-header">
             <div className="sidebar-title">{user.fullName}</div>
             <div className="sidebar-date">
-              Дата регистрации: {convertDate(user.createdAt)}
+              Registration date: {convertDate(user.createdAt)}
             </div>
           </div>
         )}
@@ -104,13 +104,13 @@ function Sidebar() {
             <IconButton>
               <CloseIcon sx={{ color: "#fff" }} />
             </IconButton>
-            <span className="menu-btn-text">Меню</span>
+            <span className="menu-btn-text">Menu</span>
           </div>
         </div>
       </div>
       <div className="menu-block">
         <div className="menu-btn" onClick={toggleSidebar}>
-          <div className="menu-btn-text">Меню</div>
+          <div className="menu-btn-text">Menu</div>
           <IconButton>
             <MenuIcon sx={{ color: "#fff" }} />
           </IconButton>

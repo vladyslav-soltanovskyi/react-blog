@@ -10,14 +10,14 @@ module.exports.all = async (req, res) => {
     return res.status(200).json(result);
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ error: "Произошла серверная ошибка" });
+    return res.status(500).json({ error: "An error occurred on the server" });
   }
 };
 
 module.exports.show = async (req, res) => {
   const id = req.params.id;
   if (!validator.isMongoId(id)) {
-    res.status(400).json({ error: "Неверный ID пользователя" });
+    res.status(400).json({ error: "Invalid User ID" });
   } else {
     try {
       const user = await User.findById(id);
@@ -30,10 +30,10 @@ module.exports.show = async (req, res) => {
           posts,
         });
       }
-      return res.status(404).json({ error: "Такой записи нет в базе" });
+      return res.status(404).json({ error: "There is no such record in the database" });
     } catch (err) {
       console.log(err);
-      return res.status(500).json({ error: "Произошла серверная ошибка" });
+      return res.status(500).json({ error: "An error occurred on the server" });
     }
   }
 };

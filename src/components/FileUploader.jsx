@@ -29,7 +29,7 @@ const FileUploader = ({ handleFile, isLoading = false, progress = 0 }) => {
           ></div>
         )}
         <FileUploadOutlinedIcon />
-        {isLoading ? "Загрузка..." : "Загрузить"}
+        {isLoading ? "Loading..." : "Upload"}
       </Button>
       <input
         type="file"

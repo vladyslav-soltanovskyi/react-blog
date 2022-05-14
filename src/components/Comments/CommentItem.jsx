@@ -19,7 +19,7 @@ function CommentList({ text, user, createdAt, _id, onDelete }) {
 
   const showConfirm = () => {
     const options = {
-      title: "Вы действительно хотите удалить эту статью?",
+      title: "Do you really want to delete this post?",
       onConfirm: async () => {
         await dispatch(deleteComment(_id));
         onDelete();
@@ -80,9 +80,9 @@ function CommentList({ text, user, createdAt, _id, onDelete }) {
             value={value}
           />
           <span className="comment-helper-info">
-            Нажмите на enter чтобы&nbsp;
+            Press enter to&nbsp;
             <span className="comment-helper-link" onClick={handleClick}>
-              сохранить
+              save
             </span>
           </span>
         </>
@@ -90,14 +90,14 @@ function CommentList({ text, user, createdAt, _id, onDelete }) {
       {showActions && (
         <div className="comment-actions">
           <div className="comment-action">
-            <Tooltip title="Изменить" placement="top">
+            <Tooltip title="Edit" placement="top">
               <IconButton onClick={toggleIsEdit}>
                 <ModeEditOutlineIcon />
               </IconButton>
             </Tooltip>
           </div>
           <div className="comment-action">
-            <Tooltip title="удалить" placement="top">
+            <Tooltip title="Delete" placement="top">
               <IconButton onClick={showConfirm}>
                 <DeleteOutlineIcon />
               </IconButton>

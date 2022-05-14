@@ -43,7 +43,7 @@ export default function EditPost() {
   const onEditPost = async (data) => {
     try {
       await api.posts.editPost(id, data);
-      dispatch(addNotification("Статья успешно изменена", "success"));
+      dispatch(addNotification("The post was successfully changed", "success"));
     } catch (e) {
       dispatch(addNotification(e?.response?.data?.error, "error"));
     }

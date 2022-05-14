@@ -29,7 +29,7 @@ function CommentsForm() {
 
   return (
     <div className="comments-form">
-      <div className="comments-form-title">Добавить комментарий</div>
+      <div className="comments-form-title">Add a comment</div>
       <form onSubmit={handleSubmit}>
         <TextField
           multiline
@@ -41,7 +41,7 @@ function CommentsForm() {
         />
         <div className="comments-form-group">
           <Button type="submit" disabled={isSending}>
-            {isSending ? "Отправляет" : "Отправить"}
+            {isSending ? "Sending" : "Send"}
           </Button>
         </div>
       </form>
