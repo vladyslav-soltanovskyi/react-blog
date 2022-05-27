@@ -1,33 +1,33 @@
-# Установка
+# Installation
 
-Перед тем, как запускать сервер, необходимо установить все зависимости.
+Before starting the server, you need to install all the dependencies.
 
-Для этого выполни команду `yarn`.
+To do this, run the `yarn` command.
 
-# Настройка
+# Configuration
 
-1. Когда установка зависимостей завершилась, необходимо создать файл `.env`, вставив в этот новый файл всё содержимое из файла `.env.example`.
-2. Теперь необходимо зарегистрироваться на сайте https://mongodb.com и скопировать ссылку на свою MongoDB базу данных.
-3. Внутри файла `.env` есть строка `MONGODB_URI=XXX`, вместо `XXX` вставь ссылку на свою БД.
+1. When the installation of dependencies is completed, you need to create a `.env` file by inserting into this new file all the contents from the `.env.example` file.
+2. Now you need to register on the website https://mongodb.com and copy the link to your MongoDB database.
+3. Inside the `.env` file there is a string `MONGODB_URI=XXX`, instead of `XXX` insert a link to your database.
 
-# Запуск
+# Starting
 
-Для того чтобы запустить сам сервер, выполни команду `yarn start`. Теперь по адресу `http://localhost:5656` будет доступен сервер.
+In order to start the server itself, run the `yarn start` command. Now at the address `http://localhost:5656 ` the server will be available.
 
-Ниже перечислены все доступные роуты.
+All available routers are listed below.
 
-# API документация (Apiary)
+# API documentation (Apiary)
 
-По адресу https://blogapi22.docs.apiary.io/ доступна вся документация по всем роутам с подробным объяснением того, что и как делает каждый роут.
+At https://blogapi22.docs.apiary.io/ all documentation on all routes is available with a detailed explanation of what each router does and how.
 
-Учитывай тот момент, что для создания статьи или комментария, тебе необходимо быть авторизованным. После произведения авторизации, бэкенд тебе в ответ вернёт `token`. Его необходимо передавать во все защищённые роуты внутри headers в свойство `Authorization`.
+Keep in mind that in order to create an article or comment, you need to be authorized. After authorization, the backend will return a `token` in response to you. It must be passed to all protected laptops inside headers in the `Authorization` property.
 
-Вот пример запроса:
+Here is an example of a request:
 ```js
 axios.post(
   `http://localhost:5656/posts`,
   {
-    title: "Заголовок статьи",
+    title: "Article title",
     text: "........",
   },
   {
@@ -38,16 +38,16 @@ axios.post(
 );
 ```
 
-## Как пользоваться Apiariy?
+## How to use Apiariy?
 
-1. Если ты хочешь тестировать запросы через сервис Apiary, то необходимо там переключится на "Use Browser", чтобы запросы не отправлялись через их сервис. Если не поменять, то всегда будет выдавать ошибку.
-    ![](http://joxi.ru/L21a3a5cwMkjq2.png) <br/> <br/>
-2. Чтобы отправить запрос, достаточно нажать на "Call Resource"
-    ![](http://joxi.ru/zANLQLMt197o0m.png)
-3. Если необходимо передать POST-параметры в запросе, то нажимаем на "Body" и указываем там JSON с параметрами.
-    ![](http://joxi.ru/BA0ZaZQC1Dxbxm.png)
+1. If you want to test requests through the Apiary service, then you need to switch to "Use Browser" there so that requests are not sent through their service. If not changed, it will always give an error.
+![](http://joxi.ru/L21a3a5cwMkjq2.png ) <br/> <br/>
+2. To send a request, just click on "Call Resource"
+![](http://joxi.ru/zANLQLMt197o0m.png)
+3. If it is necessary to pass POST parameters in the request, then click on "Body" and specify JSON with parameters there.
+![](http://joxi.ru/BA0ZaZQC1Dxbxm.png)
 
-## Apiary сложный, есть ли что-то проще?
-Да, можно скачать Postman (https://www.postman.com/) и через него отправлять запросы. 
+## Apiary is complicated, is there anything simpler?
+Yes, you can download Postman (https://www.postman.com/) and send requests through it.
 
-Или же в своём приложении самим писать Axios-запросы и тестировать (но этот вариант не самый лёгкий).
+Or you can write Axios queries and test them yourself in your application (but this option is not the easiest).
