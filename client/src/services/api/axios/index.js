@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const $api = axios.create({
-  baseURL: "https://react-blog-api-azj3.onrender.com/"
+  baseURL: process.env.URL_API
 });
 
 $api.interceptors.request.use((config) => {
