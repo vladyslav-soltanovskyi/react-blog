@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const { initRoutes } = require('./server/routes');
+const { initRoutes } = require('./routes');
 const morgan = require('morgan');
 
 require('dotenv').config();
@@ -12,8 +12,6 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan('dev'));
-
-app.use(express.static(__dirname + '/build'));
 
 initRoutes(app);
 
