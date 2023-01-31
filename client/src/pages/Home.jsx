@@ -4,7 +4,7 @@ function Home() {
       <div className="home-title">Vladyslav Soltanovskyi</div>
       <div className="home-description">Frontend Developer's blog</div>
       <div className="home-thumb-img">
-        <img src="/poster.png" alt="Vladyslav Soltanovskyi" />
+        <img src="/poster.jpg" alt="Vladyslav Soltanovskyi" />
       </div>
       <div className="home-content">
         <h3>About me</h3>
